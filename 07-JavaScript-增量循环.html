@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-增量循环</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    /*增量循环
+     * 循环遍历一个数组
+     * 语法:
+     * 数组.foreach(
+     *       function(e){
+     *           ...
+     *       }
+     *     )
+     * function是每次遍历会进入的方法
+     * e是每次遍历生成的临时存储对象的变量
+     *
+     * */
+
+    var arr = ["ad", "d", "re", 3];
+
+    /*
+     * 增量for循环
+     * function的第一个参数代表遍历的元素
+     * function的第二个参数代表的遍历的索引值
+     * */
+    arr.forEach(function (e, index) {
+        console.log(e + "  --  " + index);
+    })
+
+</script>
+
+</body>
+</html>

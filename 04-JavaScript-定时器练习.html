@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-定时器练习</title>
+
+    <style type="text/css">
+        .outer {
+            width: 600px;
+            height: 600px;
+            background-color: aquamarine;
+            border: 1px dotted gray;
+            position: absolute;
+            margin: 10px;
+        }
+
+        .in {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 200px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="outer">
+    <div class="in"></div>
+</div>
+
+<!--javascript代码-->
+<script type="text/javascript">
+    var indiv = document
+        .getElementsByClassName("in")[0];
+
+    var step = 50;//设置步长
+    //启动定时器
+    setInterval(updateLeft, 1000);
+
+    var left = 0;//记录上一次的位置
+    var direction = 0;//记录运行的方向，0代表向右，1代表向左
+    function updateLeft() {
+        console.log(left + "--" + direction);
+
+        if (left < 550 && direction == 0) {
+            left += step;//向右 值在可移动范围之内
+        }
+        else if (left < 50 && direction == 1) {
+            //向左移动，处理左边界情况
+            direction = 0;//改变方向
+            left += step;
+        }
+        else {
+            //右边界的处理
+            direction = 1;//改变方向
+            left -= step;
+        }
+
+        indiv.style.left = left + "px";
+    }
+</script>
+</body>
+</html>

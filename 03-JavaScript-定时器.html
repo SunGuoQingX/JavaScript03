@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-定时器</title>
+
+    <style type="text/css">
+        .content {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: antiquewhite;
+            border: 1px dotted gray;
+            font-size: 70px;
+            color: blue;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <p>1</p>
+</div>
+
+<div>
+    <button>开始</button>
+    <button>停止</button>
+</div>
+
+<!--javascript代码-->
+<script type="text/javascript">
+
+    /*初始化组件*/
+    var start = document
+        .getElementsByTagName("button")[0];
+    var stop = document
+        .getElementsByTagName("button")[1];
+
+    var pp = document
+        .getElementsByTagName("p")[0];
+
+    /*
+     * setinternal(function,1000)
+     * 启动定时器
+     * 第一个参数是要定时完成的任务
+     * 第二个参数是时间间隔，单位是毫秒
+     * 返回定时器的id
+     *
+     * clearinternal(定时器id)
+     * 清除某个定时器
+     * 参数为定时器id
+     *
+     * */
+
+    /*添加点击事件*/
+    var timeId;
+    start.onclick = function () {
+        /*启动任务 并记录任务id*/
+        timeId = setInterval(addCount, 1000);
+        console.log(timeId);
+        //启动任务之后隐藏掉开始按钮
+        this.style.display = "none";
+    }
+
+    stop.onclick = function () {
+        /*停止任务 根据任务id*/
+        clearInterval(timeId);
+        //重新显示开始按钮
+        start.style.display = "inline";
+    }
+
+
+    /*定时完成的任务*/
+    var count = 0;//计数变量
+    function addCount() {
+        count++;//数字加加
+        //更新页面数字
+        pp.innerHTML = count;
+    }
+
+
+</script>
+</body>
+</html>

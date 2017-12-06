@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-BOM</title>
+    <!--
+    BOM：浏览器对象模型，包含浏览器的一些相关信息
+
+    BOM的几个内置对象：
+    1、window：窗口对象，包含了很多内置对象，例如document
+           常用功能：onload监听页面加载情况
+                   open打开一个新窗口
+                   close关闭一个通过open打开的窗口
+    2、navigator：包含浏览器信息
+    3、screen：屏幕对象，能够获取窗口大小
+    4、location：包含当前页面的链接地址、协议、转发到其他页面
+    -->
+    <style type="text/css">
+        div {
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">打开一个新窗口</div>
+
+
+<script type="text/javascript">
+    /*当页面加载成功之后会进入function方法中*/
+    window.onload = function () {
+        console.log("页面加载完成----");
+    }
+
+    var div1 = document.getElementById("div1");
+    div1.onclick = function () {
+        //打开一个新窗口
+        //window.open();//open方法不给参数跳转的是空白窗口
+
+        //window.open("http://www.baidu.com");
+        window.open("09-JavaScript-close.html");
+
+       // window.close();//只能关闭通过open打开的网页
+    }
+
+    /*navigator 浏览器信息*/
+    console.log("浏览器名称："+navigator.appName);
+    console.log("浏览器引擎名称："+navigator.appCodeName);
+    console.log("浏览器版本号："+navigator.appVersion);
+
+    /*screen屏幕*/
+    console.log(screen.width+" "+screen.height);
+    console.log(screen.availWidth+" "+screen.availHeight);
+
+    /*location*/
+    //href当前页面的链接地址
+    console.log(location.href);
+
+    //protocol协议类型：http/https
+    console.log(location.protocol);
+
+    //主机地址
+    console.log(location.host);
+
+    //获取链接地址后面的参数列表，即问号后面的字符串
+    console.log(location.search);
+
+    //将当前的页面转发到其他页面，与window.open的
+    //差别是open开启新窗口，而location.href是替换页面
+    location.href="http://www.baidu.com";
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-修改元素</title>
+    <!--
+    1）createElement("标签名")
+    2）appendChild(子元素)
+    3）removeChild(子元素)
+
+    -->
+    <style type="text/css">
+        /*类选择器*/
+        .content {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: antiquewhite;
+            border: 1px dotted gray;
+            /*内容溢出时的处理方式*/
+            overflow: scroll;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="content">
+
+</div>
+<div>
+    <button>添加</button>
+    <button>移出</button>
+</div>
+
+
+<!--javascript代码-->
+<script type="text/javascript">
+    /*初始化元素*/
+    var add = document
+        .getElementsByTagName("button")[0];
+
+    var del = document
+        .getElementsByTagName("button")[1];
+
+    var content = document
+        .getElementsByClassName("content")[0];
+
+
+    /*添加点击事件*/
+    add.onclick = function () {
+        //添加事件
+        /*创建元素*/
+        var p = document.createElement("p");
+        /*设置内容*/
+        p.innerHTML = "hello world！";
+
+        /*追加元素*/
+        content.appendChild(p);
+    }
+
+    del.onclick = function () {
+        //移出事件
+        /*第一种移出*/
+        //content.innerHTML = "";
+
+        /*第二种，删除末尾位置的子元素*/
+//        var last = content.lastChild;
+        /*删除全部 undefined表示的是找不到某个元素，即没有元素*/
+        while (content.lastChild != undefined) {
+            content.removeChild(content.lastChild);
+        }
+
+        /*从头依次删除子元素*/
+        while (content.firstChild != undefined) {
+            content.removeChild(content.firstChild);
+        }
+
+
+
+    }
+
+</script>
+</body>
+</html>

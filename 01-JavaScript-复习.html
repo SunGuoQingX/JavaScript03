@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-复习</title>
+
+    <!--
+    JavaScript复习：
+    一、查找元素：
+        1）document.getElementById("idName")
+        2)document.getElementByClassName("className")
+          ps：返回的是数组，如果想取某个下标的元素，可以在后面跟下标
+          例如：
+          var a =document.getElementByClassName("className")[0];
+          等价于
+          var arr=document.getElementByClassName("className");
+          var a = arr[0];
+        3)document.getElementByTagName("tagName")
+        4)document.getElementByName("name")
+
+     二、创建元素
+        document.createElement("标签名")
+
+     三、添加元素
+        标签.appendChild(子标签)，在标签的尾部追加
+            一个子标签
+     四、设置元素
+        1）设置value，设置的是标签中的value属性
+            <input value="值">
+        2）设置innerHTML,设置的是标签中的网页内容
+            <p>内容</p>
+        3）设置样式style，即在<style>标签中能设置的属性都可以
+           通过style进行设置
+           元素.style.border="1px solid red";
+     五、事件
+        1）onclick：点击事件
+        2）onchange：值改变事件，通常在select、input
+        3）onmouseover：鼠标移入事件
+        4）onmouseout：鼠标移出事件
+        ps：可以在html标签中直接设置属性，调用js方法；
+            也可以在js中给元素的事件属性赋值某个方法；（推荐）
+            1、<input onchange="方法名">
+            2、元素.onchange = function(){...}
+
+
+
+
+
+
+
+    -->
+
+
+</head>
+<body>
+
+<div class="div1 div2" name="name1 name2">
+
+</div>
+<div name="name1"></div>
+
+<script>
+    console.log(3.43.toFixed(2))
+</script>
+</body>
+</html>
